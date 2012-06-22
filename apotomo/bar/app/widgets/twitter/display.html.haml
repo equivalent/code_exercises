@@ -1,5 +1,11 @@
 = widget_div do
-  %h1
-    TwitterWidget#display
+  %ul
+    - for tweet in @tweets
+      %li
+        = tweet.text
+ 
   %p
-    Find me in app/widgets/twitter/display.html.haml
+    What are you up to?
+  = form_tag url_for_event(:submit), :remote => true do
+    = text_field_tag 'text'
+   
